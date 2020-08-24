@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import {Radar} from 'react-chartjs-2';
+import { useState } from 'react';
 
+const dimensions =  ['berry', 'citrus', 'stonefruit', 'grassy', 'floral', 'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic', 'body', 'balance', 'finish'];
 const data = {
-  labels: ['berry', 'citrus', 'stonefruit', 'grassy', 'floral', 'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic', 'body', 'balance', 'finish'],
+  labels: dimensions,
   datasets: [{
       label: 'Previous Tasting',
       backgroundColor: 'rgba(255,99,132,0.2)',
@@ -32,9 +33,16 @@ const options = {
 };
 
 function App() {
+  const initState ={ };
+  dimensions.forEach(dimension => initState[dimension] = 0 );
+  console.log(initState);
+  const [flavors, setFlavors] = useState({ left: 0, top: 0, width: 100, height: 100 });
+
+  const setAttribute = (attribute, value) => {
+    setFlavors(state => ({ ...state, [attribute]: value}));
+  };
+
   return (
-
-
     <div className="App">
       <Radar data={data} options={options}/>
     </div>
