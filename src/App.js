@@ -1,8 +1,18 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Radar} from 'react-chartjs-2';
 import { useState } from 'react';
+=======
+import React from "react";
+import "./App.css";
+import { useState } from "react";
+import "antd/dist/antd.css";
+import { RadarChart } from "./components/RadarChart";
+import { AttributeSlider } from "./components/AttributeSlider";
+import { Row, Col, Slider } from "antd";
+>>>>>>> Stashed changes
 
 const dimensions =  ['berry', 'citrus', 'stonefruit', 'grassy', 'floral', 'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic', 'body', 'balance', 'finish'];
 const data = {
@@ -19,6 +29,7 @@ const data = {
   }]
 }
 
+<<<<<<< Updated upstream
 const options = {
   scale: {
       angleLines: {
@@ -37,14 +48,21 @@ function App() {
   dimensions.forEach(dimension => initState[dimension] = 0 );
   console.log(initState);
   const [flavors, setFlavors] = useState({ left: 0, top: 0, width: 100, height: 100 });
-
   const setAttribute = (attribute, value) => {
     setFlavors(state => ({ ...state, [attribute]: value}));
   };
+  const sliders = dimensions.map((dimension) => (
+    <AttributeSlider setAttribute={setAttribute} attribute={dimension} />
+  ));
 
   return (
     <div className="App">
-      <Radar data={data} options={options}/>
+      <Row>
+        <Col span={12}>
+          <RadarChart labels={dimensions} flavors={flavors} />
+        </Col>
+        <Col span={6}>{sliders}</Col>
+      </Row>
     </div>
   );
 }
