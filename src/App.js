@@ -21,7 +21,6 @@ const data = {
   }]
 }
 
-<<<<<<< Updated upstream
 const options = {
   scale: {
       angleLines: {
