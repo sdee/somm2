@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {Radar} from 'react-chartjs-2';
-import { useState } from 'react';
-=======
 import React from "react";
 import "./App.css";
 import { useState } from "react";
@@ -12,7 +5,6 @@ import "antd/dist/antd.css";
 import { RadarChart } from "./components/RadarChart";
 import { AttributeSlider } from "./components/AttributeSlider";
 import { Row, Col, Slider } from "antd";
->>>>>>> Stashed changes
 
 const dimensions =  ['berry', 'citrus', 'stonefruit', 'grassy', 'floral', 'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic', 'body', 'balance', 'finish'];
 const data = {
